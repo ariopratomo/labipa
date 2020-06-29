@@ -19,7 +19,7 @@ class PemakaianBarangController extends Controller
     }
     public function index()
     {
-        return view('barang.pinjam.index', [
+        return view('barang.pakai.index', [
             'title' => 'Pinjam Barang',
         ]);
     }
@@ -31,7 +31,7 @@ class PemakaianBarangController extends Controller
      */
     public function create()
     {
-        return view('barang.pinjam.create', [
+        return view('barang.pakai.create', [
             'barang' => Barang::orderBy('nm_brg', 'ASC')->get(),
             'title' => 'Tambah data'
         ]);
@@ -54,14 +54,14 @@ class PemakaianBarangController extends Controller
 
         $pemakaianBarang->create([
             'brg_id' => $request->nm_brg,
-            'jml_pinjam' => $request->jml_pinjam,
-            'ket_pinjam' => $request->ket_pinjam,
-            'tgl_pinjam' => $request->tgl_pinjam,
-            'status' => 'dipinjam',
+            'jml_pakai' => $request->jml_pakai,
+            'ket_pakai' => $request->ket_pakai,
+            'tgl_pakai' => $request->tgl_pakai,
+            'status' => 'dipakai',
             'user_id' => 1,
         ]);
-        Barang::decrement('jml_brg', $request->jml_pinjam);
-        return redirect()->route('pinjam-barang.index')->withInfo('Data barang berhasil ditambah.');
+        Barang::decrement('jml_brg', $request->jml_pakai);
+        return redirect()->route('pemakaian-barang.index')->withInfo('Data barang berhasil ditambah.');
     }
 
     /**
@@ -102,7 +102,7 @@ class PemakaianBarangController extends Controller
             'status' => 'dikembalikan',
         ]);
         $pemakaianBarang->barang()->increment('jml_brg', $request->jml_kembali);
-        return redirect()->route('pinjam-barang.index')->with('info', 'Berhasil dikembalikan');
+        return redirect()->route('pemakaian-barang.index')->with('info', 'Berhasil dikembalikan');
     }
 
     /**

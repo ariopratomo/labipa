@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->resource('/barang', 'BarangController');
-Route::resource('/pemakaian-barang', 'PermakaianBarangController');
+Route::resource('/pemakaian-barang', 'PemakaianBarangController');
 
 
 Route::get('/data/barang', 'DataController@barang')->name('data.barang');

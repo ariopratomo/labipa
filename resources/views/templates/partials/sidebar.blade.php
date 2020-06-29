@@ -33,7 +33,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu Barang:</h6>
                 <a class="collapse-item" href="{{ route('barang.index') }}">Data Barang</a>
-                <a class="collapse-item" href="{{ route('pinjam-barang.index') }}">Pinjam Barang</a>
+                <a class="collapse-item" href="{{ route('pemakaian-barang.index') }}">Pinjam Barang</a>
             </div>
         </div>
     </li>

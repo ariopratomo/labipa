@@ -17,4 +17,4 @@ data-id="{{ $model->id }}">Hapus</a> --}}
 {{-- onclick="return confirm('Apakah anda yakin ?')" --}}
 
 <!-- Modal -->
-@include('barang.pinjam.modal.modal-kembali')
+@include('barang.pakai.modal.modal-kembali')

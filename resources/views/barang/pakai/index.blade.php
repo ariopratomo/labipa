@@ -4,8 +4,8 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Pinjam Barang</h1>
-        <a href="{{ route('pinjam-barang.create') }}"
+        <h1 class="h3 mb-0 text-gray-800">Pemakaian Barang</h1>
+        <a href="{{ route('pemakaian-barang.create') }}"
             class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
     </div>
@@ -65,15 +65,15 @@ $(document).ready(function() {
     let showTable = $('#dataTable').DataTable({
         processing: true,
         serverSide: true,
-        ajax:'{{ route('data.pinjam') }}',
+        ajax:'{{ route('data.pakai') }}',
         columns:[
             {data: 'DT_RowIndex', orderable:false, searchable:false},
             {data: 'barang.nm_brg'},
-            {data: 'jml_pinjam'},
+            {data: 'jml_pakai'},
             {data: 'jml_kembali'},
             {data: 'user.name'},
             {data: 'status'},
-            {data: 'tgl_pinjam'},
+            {data: 'tgl_pakai'},
             {data: 'tgl_kembali'},
             {data: 'action'},
         ]

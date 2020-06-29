@@ -9,7 +9,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Tambah Data Pinjam</h6>
         </div>
         <div class="card-body">
-            <form action="{{ route('pinjam-barang.store') }}" method="post">
+            <form action="{{ route('pemakaian-barang.store') }}" method="post">
                 @csrf
                 <div class="row justify-content-center">
                     <div class="col-8">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-8">
                         <button class="btn btn-primary float-right" type="submit">Simpan</button>
-                        <a class="btn btn-secondary float-right mr-2" href="{{ route('pinjam-barang.index') }}"
+                        <a class="btn btn-secondary float-right mr-2" href="{{ route('pemakaian-barang.index') }}"
                             type="submit">Batal</a>
                     </div>
                 </div>
