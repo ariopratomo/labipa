@@ -37,14 +37,14 @@
 @endsection
 
 @push('style')
-<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{ secure_asset('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endpush
 @push('scripts')
 
 <!-- Page level plugins -->
-<script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap-notify.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ secure_asset('js/bootstrap-notify.js') }}"></script>
 
 <script>
     // Call the dataTables jQuery plugin

@@ -73,19 +73,20 @@
 
 @endsection
 @push('style')
-{{-- <link href="{{ asset('assets/vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}" rel="stylesheet"> --}}
-{{-- <link href="{{ asset('assets/vendor/select2/css/select2.min.css')}}" rel="stylesheet"> --}}
+{{-- <link href="{{ secure_secure_asset('assets/vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}"
+rel="stylesheet"> --}}
+{{-- <link href="{{ secure_secure_asset('assets/vendor/select2/css/select2.min.css')}}" rel="stylesheet"> --}}
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<link href="{{ asset('assets/vendor/datetimepicker/datetimepicker.css')}}" rel="stylesheet">
+<link href="{{ secure_secure_asset('assets/vendor/datetimepicker/datetimepicker.css')}}" rel="stylesheet">
 
 @endpush
 @push('scripts')
-{{-- <script src="{{ asset('assets/vendor/select2/js/select2.min.js') }}"></script> --}}
+{{-- <script src="{{ secure_secure_asset('assets/vendor/select2/js/select2.min.js') }}"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<script src="{{ asset('assets/vendor/datetimepicker/moment.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datetimepicker/moment-with-locales.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datetimepicker/datetimepicker.js') }}"></script>
+<script src="{{ secure_secure_asset('assets/vendor/datetimepicker/moment.min.js') }}"></script>
+<script src="{{ secure_secure_asset('assets/vendor/datetimepicker/moment-with-locales.min.js') }}"></script>
+<script src="{{ secure_secure_asset('assets/vendor/datetimepicker/datetimepicker.js') }}"></script>
 <script>
     // $('.select2').find(':selected');
     $(function () {
