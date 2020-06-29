@@ -22,8 +22,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->resource('/barang', 'BarangController');
-Route::resource('/pinjam-barang', 'PinjamBarangController');
+Route::resource('/pemakaian-barang', 'PermakaianBarangController');
 
 
 Route::get('/data/barang', 'DataController@barang')->name('data.barang');
-Route::get('/data/pinjam', 'DataController@pinjam')->name('data.pinjam');
+Route::get('/data/pakai', 'DataController@pakai')->name('data.pakai');
