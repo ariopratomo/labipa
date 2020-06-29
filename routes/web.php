@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->resource('/barang', 'BarangController');
+Route::resource('/pinjam-barang', 'PinjamBarangController');
+
+
+Route::get('/data/barang', 'DataController@barang')->name('data.barang');
+Route::get('/data/pinjam', 'DataController@pinjam')->name('data.pinjam');
