@@ -12,13 +12,15 @@ class BarangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        // return view('barang.index', [
-        //     'title' => 'Data Barang - Lab IPA',
-        // ]);
-        return "Barang";
+        return view('barang.index', [
+            'title' => 'Data Barang - Lab IPA',
+        ]);
     }
 
     /**
