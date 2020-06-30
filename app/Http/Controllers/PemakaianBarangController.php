@@ -47,9 +47,9 @@ class PemakaianBarangController extends Controller
     {
         $this->validate($request, [
             'nm_brg' => 'required',
-            'jml_pinjam' => 'required|numeric',
-            'ket_pinjam' => 'required',
-            'tgl_pinjam' => 'required',
+            'jml_pakai' => 'required|numeric',
+            'ket_pakai' => 'required',
+            'tgl_pakai' => 'required',
         ]);
 
         $pemakaianBarang->create([

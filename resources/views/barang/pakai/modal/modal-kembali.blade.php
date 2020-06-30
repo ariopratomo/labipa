@@ -8,15 +8,15 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('pinjam-barang.update', $model) }}" method="post">
+            <form action="{{ route('pemakaian-barang.update', $model) }}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
-                    <input type="hidden" name="id_pinjam" value="{{ $model->id}}">
+                    <input type="hidden" name="id_pakai" value="{{ $model->id}}">
                     <div class="form-group">
                         <label>Jumlah Kembali <sup class="text-danger qty"></sup></label>
                         <input type="number" class="form-control" id="jml_kembali" name="jml_kembali"
-                            value="{{ old('jml_kembali') }}" required="" max="{{  $model->jml_pinjam }}" min="1">
+                            value="{{ old('jml_kembali') }}" required="" max="{{  $model->jml_pakai }}" min="1">
                         @error('jml_kembali')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
