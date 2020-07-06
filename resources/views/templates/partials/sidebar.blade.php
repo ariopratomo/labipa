@@ -34,7 +34,7 @@
     </li>
     <li class="nav-item {{ Request::is('pemusnahan-barang*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('pemusnahan-barang.index') }}">
-            <i class="fas fa-flask "></i>
+            <i class="fas fa-trash "></i>
             <span>Pemusnahan barang</span></a>
     </li>
 
