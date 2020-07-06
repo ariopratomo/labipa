@@ -6,6 +6,8 @@ use App\Barang;
 use App\JadwalLab;
 use App\Kelas;
 use App\PemakaianBarang;
+use App\PerawatanBarang;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -60,7 +62,6 @@ class DataController extends Controller
             ->toJson();
     }
 
-
     public function kelas()
     {
         $kelas = Kelas::orderBy('kelas', 'ASC')->get();
@@ -68,6 +69,35 @@ class DataController extends Controller
             ->addColumn('action', 'kelas.action')
             ->addIndexColumn()
             ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function user()
+    {
+        $user = User::orderBy('nip', 'ASC')->get();
+        return datatables()->of($user)
+
+            ->addColumn('action', 'user.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function rawat()
+    {
+        $rawat = PerawatanBarang::get();
+        $rawat->load('barang');
+        return datatables()->of($rawat)
+            ->editColumn('tgl_rawat', function (PerawatanBarang $model) {
+                $tgl_rawat =  $model->tgl_rawat;
+
+                if (is_null($tgl_rawat))
+                    return '-';
+                else return  $tgl_rawat ? with(new Carbon($tgl_rawat))->format('d/m/Y') : '';
+            })
+            ->addColumn('action', 'barang.rawat.action')
+            ->addIndexColumn()
+            ->rawColumns(['action', 'tgl_rawat'])
             ->toJson();
     }
 }

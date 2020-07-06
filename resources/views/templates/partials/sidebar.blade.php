@@ -29,8 +29,13 @@
     </li>
     <li class="nav-item {{ Request::is('pemakaian-barang*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('pemakaian-barang.index') }}">
-            <i class="fas fa-flask    "></i>
+            <i class="fas fa-flask "></i>
             <span>Pemakaian barang</span></a>
+    </li>
+    <li class="nav-item {{ Request::is('perawatan-barang*')? 'active':'' }}">
+        <a class="nav-link" href="{{ route('perawatan-barang.index') }}">
+            <i class="fas fa-flask "></i>
+            <span>Perawatan barang</span></a>
     </li>
 
 
@@ -38,13 +43,21 @@
     <hr class="sidebar-divider">
     <li class="nav-item {{ Request::is('kelas*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('kelas.index') }}">
-            <i class="fas fa-university    "></i>
+            <i class="fas fa-university "></i>
             <span>Kelas</span></a>
     </li>
     <li class="nav-item {{ Request::is('jadwal*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('jadwal.index') }}">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Jadwal Praktik</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <li class="nav-item {{ Request::is('user*')? 'active':'' }}">
+        <a class="nav-link" href="{{ route('users.index') }}">
+            <i class="fas fa-user-alt "></i>
+            <span>User</span></a>
     </li>
 
     <!-- Divider -->

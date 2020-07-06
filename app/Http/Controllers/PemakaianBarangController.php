@@ -20,7 +20,7 @@ class PemakaianBarangController extends Controller
     public function index()
     {
         return view('barang.pakai.index', [
-            'title' => 'Pinjam Barang',
+            'title' => 'Pakai Barang',
         ]);
     }
 

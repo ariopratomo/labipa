@@ -4,15 +4,15 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Pemakaian Barang</h1>
-        <a href="{{ route('pemakaian-barang.create') }}"
+        <h1 class="h3 mb-0 text-gray-800">Perawatan Barang</h1>
+        <a href="{{ route('perawatan-barang.create') }}"
             class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
     </div>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Pakai Barang</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Perawatan Barang</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -21,12 +21,9 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
-                            <th>Jumlah Pakai</th>
-                            <th>Jumlah Kembali</th>
-                            <th>Peminjam</th>
-                            <th>Status</th>
-                            <th>Tgl Pakai</th>
-                            <th>Tgl Kembali</th>
+                            <th>Kondisi</th>
+                            <th>Qty</th>
+                            <th>Tgl Rawat</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -65,16 +62,13 @@ $(document).ready(function() {
     let showTable = $('#dataTable').DataTable({
         processing: true,
         serverSide: true,
-        ajax:'{{ route('data.pakai') }}',
+        ajax:'{{ route('data.rawat') }}',
         columns:[
             {data: 'DT_RowIndex', orderable:false, searchable:false},
             {data: 'barang.nm_brg'},
-            {data: 'jml_pakai'},
-            {data: 'jml_kembali'},
-            {data: 'user.name'},
-            {data: 'status'},
-            {data: 'tgl_pakai'},
-            {data: 'tgl_kembali'},
+            {data: 'kondisi'},
+            {data: 'qty'},
+            {data: 'tgl_rawat'},
             {data: 'action'},
         ]
         });
