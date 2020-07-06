@@ -19,7 +19,7 @@ class CreateJadwalLabsTable extends Migration
             $table->string('mapel');
             $table->string('jam');
             $table->string('keterangan');
-            $table->string('status');
+            $table->enum('status', ['disetujui', 'menunggu persetujuan']);
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }

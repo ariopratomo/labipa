@@ -85,7 +85,12 @@ class JadwalLabController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('jadwal.edit', [
+            'title' => 'Ubah data Jadwal',
+            'jadwallab' => JadwalLab::find($id),
+            'user' => User::orderBy('nip', 'ASC')->get(),
+            'kelas' => Kelas::orderBy('kelas', 'ASC')->get()
+        ]);
     }
 
     /**
@@ -95,9 +100,27 @@ class JadwalLabController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, JadwalLab $jadwal)
     {
-        //
+        $this->validate($request, [
+            'nip' => 'required',
+            'mapel' => 'required',
+            'hari' => 'required',
+            'kelas' => 'required',
+            'keterangan' => 'required',
+            'jam' => 'required|numeric',
+        ]);
+
+        $jadwal->update([
+            'user_id' => $request->nip,
+            'mapel' => $request->mapel,
+            'hari' => $request->hari,
+            'kelas_id' => $request->kelas,
+            'keterangan' => $request->keterangan,
+            'jam' => $request->jam,
+        ]);
+
+        return redirect()->route('jadwal.index')->withInfo('Berhasil mengubah data jadwal.');
     }
 
     /**
