@@ -6,10 +6,10 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tambah Data Perawatan Barang</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tambah Data Pemusnahan Barang</h6>
         </div>
         <div class="card-body">
-            <form action="{{ route('perawatan-barang.store') }}" method="post">
+            <form action="{{ route('pemusnahan-barang.store') }}" method="post">
                 @csrf
                 <div class="row justify-content-center">
                     <div class="col-8">
@@ -27,39 +27,40 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Qty<sup class="text-danger qty"></sup></label>
-                            <input type="number" class="form-control" id="qty" name="qty" value="{{ old('qty') }}"
-                                required="">
-                            @error('qty')
+                            <label>Jumlah Musnah<sup class="text-danger jml_musnah"></sup></label>
+                            <input type="number" class="form-control" id="jml_musnah" name="jml_musnah"
+                                value="{{ old('jml_musnah') }}" required="">
+                            @error('jml_musnah')
                             <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Kondisi</label>
-                            <input type="text" name="kondisi" class="form-control" placeholder="Kondisi" maxlength="200"
-                                required="">
-                            @error('kondisi')
+                            <label>Keterangan</label>
+                            <input type="text" name="keterangan" class="form-control" placeholder="keterangan musnah"
+                                maxlength="200" required="">
+                            @error('keterangan')
                             <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label> Tanggal Rawat</label>
-                            <div class="input-group date" id="tgl_rawat" data-target-input="nearest">
-                                <input type="text" name="tgl_rawat" class="form-control datetimepicker-input"
-                                    data-target="#tgl_rawat" required="" autocomplete="off" />
+                            <label> Tanggal Musnah</label>
+                            <div class="input-group date" id="tgl_musnah" data-target-input="nearest">
+                                <input type="text" name="tgl_musnah" class="form-control datetimepicker-input"
+                                    data-target="#tgl_musnah" required="" autocomplete="off" />
                                 <div class="input-group-append">
-                                    <div class="input-group-text" data-target="#tgl_rawat" data-toggle="datetimepicker">
+                                    <div class="input-group-text" data-target="#tgl_musnah"
+                                        data-toggle="datetimepicker">
                                         <i class="fas fa-calendar"></i></div>
                                 </div>
                             </div>
-                            @error('tgl_rawat')
+                            @error('tgl_musnah')
                             <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
                     <div class="col-8">
                         <button class="btn btn-primary float-right" type="submit">Simpan</button>
-                        <a class="btn btn-secondary float-right mr-2" href="{{ route('perawatan-barang.index') }}"
+                        <a class="btn btn-secondary float-right mr-2" href="{{ route('pemusnahan-barang.index') }}"
                             type="submit">Batal</a>
                     </div>
                 </div>
@@ -90,20 +91,20 @@ rel="stylesheet"> --}}
 <script>
     // $('.select2').find(':selected');
     $(function () {
-                $('#tgl_rawat').datetimepicker({
+                $('#tgl_musnah').datetimepicker({
                     locale: 'id',
                     format: 'Y-MM-DD'
                 });
             });
 
             $('select').change(function(){
-                let max_rawat =$(this).find(':selected').attr('data-jml')
+                let max_musnah =$(this).find(':selected').attr('data-jml')
 
 
-                console.log(max_rawat)
-                $(".qty").html("");
-                $("#qty").attr("max",max_rawat);
-                $(".qty").append("maksimal "+max_rawat);
+                console.log(max_musnah)
+                $(".jml_musnah").html("");
+                $("#jml_musnah").attr("max",max_musnah);
+                $(".jml_musnah").append("maksimal "+max_musnah);
             });
 
 </script>

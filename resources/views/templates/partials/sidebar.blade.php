@@ -32,10 +32,10 @@
             <i class="fas fa-flask "></i>
             <span>Pemakaian barang</span></a>
     </li>
-    <li class="nav-item {{ Request::is('perawatan-barang*')? 'active':'' }}">
-        <a class="nav-link" href="{{ route('perawatan-barang.index') }}">
+    <li class="nav-item {{ Request::is('pemusnahan-barang*')? 'active':'' }}">
+        <a class="nav-link" href="{{ route('pemusnahan-barang.index') }}">
             <i class="fas fa-flask "></i>
-            <span>Perawatan barang</span></a>
+            <span>Pemusnahan barang</span></a>
     </li>
 
 
