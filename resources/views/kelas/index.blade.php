@@ -84,7 +84,6 @@
                             type: 'info',
                             z_index: 9999,
                         });
-
                 },
                 error: function (data) {
                     console.log('Error:', data);

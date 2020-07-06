@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\JadwalLab;
+use App\Kelas;
+use App\User;
 use Illuminate\Http\Request;
 
 class JadwalLabController extends Controller
@@ -27,7 +30,9 @@ class JadwalLabController extends Controller
     public function create()
     {
         return view('jadwal.create', [
-            'title' => 'Tambah data jadwal'
+            'title' => 'Tambah data jadwal',
+            'user' => User::orderBy('nip', 'ASC')->get(),
+            'kelas' => Kelas::orderBy('kelas', 'ASC')->get()
         ]);
     }
 
@@ -39,7 +44,26 @@ class JadwalLabController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nip' => 'required',
+            'mapel' => 'required',
+            'hari' => 'required',
+            'kelas' => 'required',
+            'keterangan' => 'required',
+            'jam' => 'required|numeric',
+        ]);
+
+        JadwalLab::create([
+            'user_id' => $request->nip,
+            'mapel' => $request->mapel,
+            'hari' => $request->hari,
+            'kelas_id' => $request->kelas,
+            'keterangan' => $request->keterangan,
+            'jam' => $request->jam,
+            'status' => 'Menunggu Persetujuan',
+        ]);
+
+        return redirect()->route('jadwal.index')->withInfo('Berhasil menambah data jadwal.');
     }
 
     /**
@@ -84,6 +108,11 @@ class JadwalLabController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        JadwalLab::find($id)->delete();
+        return response()->json([
+            'success' => 'Item deleted successfully.',
+            'message' => 'Berhasil menghapus data jadwal.'
+        ]);
     }
 }

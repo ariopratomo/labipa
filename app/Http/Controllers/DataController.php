@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Barang;
+use App\JadwalLab;
 use App\Kelas;
 use App\PemakaianBarang;
 use Carbon\Carbon;
@@ -25,6 +26,7 @@ class DataController extends Controller
             ->rawColumns(['action'])
             ->toJson();
     }
+
     public function pakai()
     {
         $pakai = PemakaianBarang::get();
@@ -45,6 +47,20 @@ class DataController extends Controller
             ->rawColumns(['action', 'tgl_kembali'])
             ->toJson();
     }
+
+    public function jadwal()
+    {
+        $jadwal = JadwalLab::get();
+        $jadwal->load('user', 'kelas');
+        return datatables()->of($jadwal)
+
+            ->addColumn('action', 'jadwal.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+
     public function kelas()
     {
         $kelas = Kelas::orderBy('kelas', 'ASC')->get();

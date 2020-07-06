@@ -14,16 +14,18 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Jadwal</h6>
         </div>
         <div class="card-body">
-            <div class="">
+            <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable">
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>NIP Pengajar</th>
+                            <th>Kelas</th>
                             <th>Mapel</th>
                             <th>Jam</th>
+                            <th>Hari</th>
                             <th>Keterangan</th>
                             <th>Status</th>
-                            <th>Guru</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -49,51 +51,55 @@
 <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
 
-{{-- <script>
+<script>
     // Call the dataTables jQuery plugin
 $(document).ready(function() {
-
+//#region  show table
     let showTable = $('#dataTable').DataTable({
-            processing: true,
-                serverSide: true,
-                ajax:'{{ route('data.barang') }}',
-columns:[
-{data: 'DT_RowIndex', orderable:false, searchable:false},
-{data: 'nm_brg'},
-{data: 'jml_brg'},
-{data: 'action'},
-]
-});
+        processing: true,
+        serverSide: true,
+        ajax:'{{ route('data.jadwal') }}',
+        columns:[
+            {data: 'DT_RowIndex', orderable:false, searchable:false},
+            {data: 'user.nip',},
+            {data: 'kelas.kelas'},
+            {data: 'mapel'},
+            {data: 'jam'},
+            {data: 'hari'},
+            {data: 'keterangan'},
+            {data: 'status'},
+            {data: 'action'}
+        ]
+    });
+//#endregion
 
-$('body').on('click', '.delete', function () {
 
-let Item_id = $(this).data("id");
-confirm("Are You sure want to delete !");
+//#region  delete
+    $('body').on('click', '.delete', function () {
+        let Item_id = $(this).data("id");
+        confirm("Are You sure want to delete !");
 
-$.ajax({
-type: "DELETE",
-headers: {
-'X-CSRF-TOKEN': '{{ csrf_token() }}'
-},
-url: "{{ route('jadwal.store') }}"+'/'+Item_id,
-success: function (data) {
-showTable.draw();
-$.notify({
-message: 'Data barang berhasil dihapus'
-},{
-type: 'info',
-z_index: 9999,
-});
-
-},
-error: function (data) {
-console.log('Error:', data);
-}
-});
-});
+        $.ajax({
+            type: "DELETE",
+            headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+            url: "{{ route('jadwal.store') }}"+'/'+Item_id,
+            success: function (data) {
+                showTable.draw();
+                $.notify({ message: data.message },
+                {
+                    type: 'info',
+                    z_index: 9999,
+                });
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+//#endregion
 
 });
-</script> --}}
+</script>
 @include('templates.partials.alerts')
 
 

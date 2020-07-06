@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@labipa.test',
             'password' => bcrypt('12345678'),
+            'nip' => 199402232020021005,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

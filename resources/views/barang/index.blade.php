@@ -53,6 +53,7 @@ $(document).ready(function() {
     let showTable = $('#dataTable').DataTable({
             processing: true,
                 serverSide: true,
+                fixedHeader: true,
                 ajax:'{{ route('data.barang') }}',
                 columns:[
                     {data: 'DT_RowIndex', orderable:false, searchable:false},

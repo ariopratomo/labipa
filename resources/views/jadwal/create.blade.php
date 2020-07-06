@@ -14,7 +14,19 @@
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <div class="form-group">
-                            <label for="">Mapel</label>
+                            <label>NIP Pengajar</label>
+                            <select class="form-control" name="nip">
+                                <option value="">Pilih NIP</option>
+                                @foreach ($user as $item)
+                                <option value="{{ $item->id }}">{{ $item->nip }}</option>
+                                @endforeach
+                            </select>
+                            @error('nip')
+                            <small id="helpId" class="form-text text-danger ">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Mapel</label>
                             <input type="text" class="form-control" name="mapel" value="{{  old('mapel') }}"
                                 aria-describedby="helpId">
                             @error('mapel')
@@ -22,14 +34,43 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Hari</label>
-                            <select class="form-control" name="" id="">
+                            <label>Hari</label>
+                            <select class="form-control" name="hari">
                                 <option>Senin</option>
                                 <option>Selasa</option>
                                 <option>Rabu</option>
                                 <option>Kamis</option>
                                 <option>Jumat</option>
                             </select>
+                            @error('hari')
+                            <small id="helpId" class="form-text text-danger ">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Kelas</label>
+                            <select class="form-control" name="kelas">
+                                <option value="">Pilih Kelas</option>
+                                @foreach ($kelas as $item)
+                                <option value="{{ $item->id }}">{{ $item->kelas }}</option>
+                                @endforeach
+                            </select>
+                            @error('kelas')
+                            <small id="helpId" class="form-text text-danger ">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Keterangan</label>
+                            <input type="text" class="form-control" name="keterangan" aria-describedby="helpId">
+                            @error('keterangan')
+                            <small id="helpId" class="form-text text-danger ">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Jam ke</label>
+                            <input type="number" class="form-control" name="jam" aria-describedby="helpId">
+                            @error('jam')
+                            <small id="helpId" class="form-text text-danger ">{{ $message }}</small>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-8">
