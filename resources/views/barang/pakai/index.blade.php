@@ -44,19 +44,19 @@
 @endsection
 
 @push('style')
-<link href="{{ secure_asset('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
-<link href="{{ secure_asset('assets/vendor/datetimepicker/datetimepicker.css')}}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/datetimepicker/datetimepicker.css')}}" rel="stylesheet">
 @endpush
 @push('scripts')
 
 <!-- Page level plugins -->
-<script src="{{ secure_asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ secure_asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ secure_asset('js/bootstrap-notify.js') }}"></script>
-<script src="{{ secure_asset('assets/vendor/datetimepicker/moment.min.js') }}"></script>
-<script src="{{ secure_asset('assets/vendor/datetimepicker/moment-with-locales.min.js') }}"></script>
-<script src="{{ secure_asset('assets/vendor/datetimepicker/datetimepicker.js') }}"></script>
+<script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-notify.js') }}"></script>
+<script src="{{ asset('assets/vendor/datetimepicker/moment.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/datetimepicker/moment-with-locales.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/datetimepicker/datetimepicker.js') }}"></script>
 
 <script>
     // Call the dataTables jQuery plugin

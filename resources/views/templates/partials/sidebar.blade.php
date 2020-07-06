@@ -40,8 +40,13 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+    <li class="nav-item {{ Request::is('kelas*')? 'active':'' }}">
+        <a class="nav-link" href="{{ route('kelas.index') }}">
+            <i class="fas fa-university    "></i>
+            <span>Kelas</span></a>
+    </li>
+    <li class="nav-item {{ Request::is('jadwal*')? 'active':'' }}">
+        <a class="nav-link" href="{{ route('jadwal.index') }}">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Jadwal Praktik</span></a>
     </li>

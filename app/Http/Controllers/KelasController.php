@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contact;
+use App\Kelas;
 
-class JadwalLabController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +15,7 @@ class JadwalLabController extends Controller
      */
     public function index()
     {
-        return view('jadwal.index', [
-            'title' =>
-            'Jadwal Laboratorium'
-        ]);
+        return view('kelas.index');
     }
 
     /**
@@ -26,9 +25,7 @@ class JadwalLabController extends Controller
      */
     public function create()
     {
-        return view('jadwal.create', [
-            'title' => 'Tambah data jadwal'
-        ]);
+        //
     }
 
     /**
@@ -39,7 +36,20 @@ class JadwalLabController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = \Validator::make($request->all(), [
+            'kelas' => 'required',
+        ]);
+
+        if ($validator->passes()) {
+
+            Kelas::updateOrCreate(
+                ['id' => $request->kelasId],
+                ['kelas' => $request->kelas]
+            );
+            return response()->json(['success' => "Berhasil menyimpan '$request->kelas'"]);
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
     }
 
     /**
@@ -61,7 +71,8 @@ class JadwalLabController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kelas = Kelas::find($id);
+        return response()->json($kelas);
     }
 
     /**
@@ -84,6 +95,8 @@ class JadwalLabController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kelas::find($id)->delete();
+
+        return response()->json(['success' => 'Berhasil menghapus kelas.']);
     }
 }

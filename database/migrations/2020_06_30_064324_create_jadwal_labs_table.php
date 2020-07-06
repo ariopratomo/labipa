@@ -20,7 +20,6 @@ class CreateJadwalLabsTable extends Migration
             $table->string('jam');
             $table->string('keterangan');
             $table->string('status');
-
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }

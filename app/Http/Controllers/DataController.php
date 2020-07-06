@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Barang;
+use App\Kelas;
 use App\PemakaianBarang;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -12,7 +13,6 @@ class DataController extends Controller
     public function barang()
     {
         $barang = Barang::orderBy('nm_brg', 'ASC')->get();
-        // $barang->load('author');
         return datatables()->of($barang)
             ->addColumn('nm_brg', function (Barang $model) {
                 return $model->nm_brg;
@@ -29,16 +29,7 @@ class DataController extends Controller
     {
         $pakai = PemakaianBarang::get();
         $pakai->load('user', 'barang');
-        // $pakai = PemakaianBarang::leftjoin('barang', 'pinjam_barang.brg_id', '=', 'barang.id')
-        //     ->leftjoin('users', 'pinjam_barang.user_id', '=', 'users.id')->select('barang.nm_brg', 'jml_pinjam', 'users.name');
         return datatables()->of($pakai)
-
-            // ->addColumn('nm_brg', function (PemakaianBarang $model) {
-            //     return $model->barang->nm_brg;
-            // })
-            // ->addColumn('peminjam', function (PemakaianBarang $model) {
-            //     return $model->user->name;
-            // })
             ->editColumn('tgl_pakai', function (PemakaianBarang $model) {
                 return $model->tgl_pakai ? with(new Carbon($model->tgl_pakai))->format('d/m/Y') : '';
             })
@@ -52,6 +43,15 @@ class DataController extends Controller
             ->addColumn('action', 'barang.pakai.action')
             ->addIndexColumn()
             ->rawColumns(['action', 'tgl_kembali'])
+            ->toJson();
+    }
+    public function kelas()
+    {
+        $kelas = Kelas::orderBy('kelas', 'ASC')->get();
+        return datatables()->of($kelas)
+            ->addColumn('action', 'kelas.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
             ->toJson();
     }
 }
