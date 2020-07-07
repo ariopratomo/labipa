@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Barang;
 use App\PemakaianBarang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PemakaianBarangController extends Controller
 {
@@ -58,7 +59,7 @@ class PemakaianBarangController extends Controller
             'ket_pakai' => $request->ket_pakai,
             'tgl_pakai' => $request->tgl_pakai,
             'status' => 'dipakai',
-            'user_id' => 1,
+            'user_id' => Auth::user()->id,
         ]);
         Barang::decrement('jml_brg', $request->jml_pakai);
         return redirect()->route('pemakaian-barang.index')->withInfo('Data barang berhasil ditambah.');

@@ -23,8 +23,10 @@ Route::middleware('auth')->resource('/barang', 'BarangController');
 Route::middleware('auth')->resource('/pemakaian-barang', 'PemakaianBarangController');
 Route::middleware('auth')->resource('/pemusnahan-barang', 'PemusnahanBarangController');
 Route::middleware('auth')->resource('/jadwal', 'JadwalLabController');
-Route::middleware('auth')->resource('/kelas', 'KelasController');
-Route::middleware('auth')->resource('/users', 'UserController');
+Route::middleware('auth', 'role:admin')->resource('/kelas', 'KelasController');
+Route::middleware('auth', 'role:admin')->resource('/users', 'UserController');
+Route::middleware('auth')->get('/report/cetak_barang', 'ReportController@cetak_barang')->name('report.cetak_barang');
+Route::middleware('auth')->get('/profile', 'ProfileController@index')->name('profile');
 
 
 Route::get('/data/barang', 'DataController@barang')->name('data.barang');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Barang;
 use Illuminate\Http\Request;
+use PDF;
 
 class BarangController extends Controller
 {

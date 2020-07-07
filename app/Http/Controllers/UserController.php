@@ -47,13 +47,13 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-        $user->create([
+        $userCreate = $user->create([
             'name' => $request->name,
             'nip' => $request->nip,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        $userCreate->assignRole('user');
         return redirect()->route('users.index')->withInfo('Berhasil menambah user.');
     }
 

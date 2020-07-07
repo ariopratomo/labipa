@@ -41,17 +41,19 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+    @role('admin')
     <li class="nav-item {{ Request::is('kelas*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('kelas.index') }}">
             <i class="fas fa-university "></i>
             <span>Kelas</span></a>
     </li>
+    @endrole
     <li class="nav-item {{ Request::is('jadwal*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('jadwal.index') }}">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Jadwal Praktik</span></a>
     </li>
-
+    @role('admin')
     <!-- Divider -->
     <hr class="sidebar-divider">
     <li class="nav-item {{ Request::is('user*')? 'active':'' }}">
@@ -59,6 +61,7 @@
             <i class="fas fa-user-alt "></i>
             <span>User</span></a>
     </li>
+    @endrole
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

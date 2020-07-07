@@ -1,10 +1,11 @@
 @extends('templates.default')
 @section('content')
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Barang</h1>
+        {{-- <a href="{{ route('report.cetak_barang') }}" class="btn btn-primary" target="_blank">CETAK PDF</a> --}}
+
         <a href="{{ route('barang.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Barang</a>
     </div>
@@ -21,7 +22,9 @@
                             <th>No</th>
                             <th>Nama Barang</th>
                             <th>Jumlah Barang</th>
+                            @role('admin')
                             <th>Aksi</th>
+                            @endrole
                         </tr>
                     </thead>
                     <tbody>
@@ -44,8 +47,8 @@
 <!-- Page level plugins -->
 <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+@role('admin')
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
-
 <script>
     // Call the dataTables jQuery plugin
 $(document).ready(function() {
@@ -93,6 +96,24 @@ $(document).ready(function() {
 });
 </script>
 @include('templates.partials.alerts')
+@else
+<script>
+    // Call the dataTables jQuery plugin
+$(document).ready(function() {
+    let showTable = $('#dataTable').DataTable({
+            processing: true,
+                serverSide: true,
+                fixedHeader: true,
+                ajax:'{{ route('data.barang') }}',
+                columns:[
+                    {data: 'DT_RowIndex', orderable:false, searchable:false},
+                    {data: 'nm_brg'},
+                    {data: 'jml_brg'},
+                ]
+        });
+});
+</script>
+@endrole
 
 
 @endpush
