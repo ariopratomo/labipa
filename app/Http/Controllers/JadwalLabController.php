@@ -44,6 +44,12 @@ class JadwalLabController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'same' => 'The :attribute and :other must match.',
+            'size' => 'The :attribute must be exactly :size.',
+            'between' => 'The :attribute value :input is not between :min - :max.',
+            'in' => 'The :attribute must be one of the following types: :values',
+        ];
         $this->validate($request, [
             'nip' => 'required',
             'mapel' => 'required',
@@ -60,7 +66,6 @@ class JadwalLabController extends Controller
             'kelas_id' => $request->kelas,
             'keterangan' => $request->keterangan,
             'jam' => $request->jam,
-            'status' => 'Menunggu Persetujuan',
         ]);
 
         return redirect()->route('jadwal.index')->withInfo('Berhasil menambah data jadwal.');

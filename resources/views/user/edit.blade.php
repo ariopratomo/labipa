@@ -85,7 +85,23 @@
                             autocomplete="new-password">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="" class="col-md-4 col-form-label text-md-right">Role</label>
+                    <div class="col-md-6">
+                        <select name="role" class="form-control {{ $errors->has('role') ? 'is-invalid':'' }}" required>
 
+                            @foreach ($role as $row)
+                            <option value="{{ $row->id }}" @foreach ($user->getRoleNames() as $role)
+                                @if ( $row->name === $role)
+                                selected @endif
+                                @endforeach>
+                                {{ $row->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <p class="text-danger">{{ $errors->first('role') }}</p>
+                </div>
                 <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary float-right">

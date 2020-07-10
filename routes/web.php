@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +37,10 @@ Route::get('/data/kelas', 'DataController@kelas')->name('data.kelas');
 Route::get('/data/jadwal', 'DataController@jadwal')->name('data.jadwal');
 Route::get('/data/user', 'DataController@user')->name('data.user');
 Route::get('/data/musnah', 'DataController@musnah')->name('data.musnah');
+
+Route::middleware('auth', 'role:admin')->post('/updaterole/{id}', function (Request $request, $id) {
+    $user = User::findOrFail($id);
+    $update = $user->assignRole($request->role);
+    $return = ($update) ? "Berhasil" : "Gagal";
+    return $request->role;
+})->name('updaterole');

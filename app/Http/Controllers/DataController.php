@@ -10,6 +10,7 @@ use App\PemusnahanBarang;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class DataController extends Controller
 {
@@ -76,10 +77,17 @@ class DataController extends Controller
     {
         $user = User::orderBy('nip', 'ASC')->get();
         return datatables()->of($user)
-
+            ->addColumn('role', function (User $model) {
+                $options = '';
+                foreach ($model->getRoleNames() as $row) {
+                    $options .= $row;
+                }
+                $return = $options;
+                return $return;
+            })
             ->addColumn('action', 'user.action')
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'role'])
             ->toJson();
     }
 

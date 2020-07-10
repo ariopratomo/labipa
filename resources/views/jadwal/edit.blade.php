@@ -71,14 +71,16 @@
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <input type="text" class="form-control" name="keterangan" aria-describedby="helpId">
+                            <input type="text" class="form-control" name="keterangan"
+                                value="{{  $jadwallab->keterangan ?? old('keterangan') }}" aria-describedby="helpId">
                             @error('keterangan')
-                            <small id="helpId" class="form-text text-danger ">{{ $message }}</small>
+                            <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>Jam ke</label>
-                            <input type="number" class="form-control" name="jam" aria-describedby="helpId">
+                            <input type="number" class="form-control" name="jam"
+                                value="{{  $jadwallab->jam ?? old('jam') }}" aria-describedby="helpId">
                             @error('jam')
                             <small id="helpId" class="form-text text-danger ">{{ $message }}</small>
                             @enderror

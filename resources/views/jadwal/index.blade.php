@@ -25,7 +25,6 @@
                             <th>Jam</th>
                             <th>Hari</th>
                             <th>Keterangan</th>
-                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -67,7 +66,6 @@ $(document).ready(function() {
             {data: 'jam'},
             {data: 'hari'},
             {data: 'keterangan'},
-            {data: 'status'},
             {data: 'action'}
         ]
     });

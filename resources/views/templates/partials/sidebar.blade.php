@@ -51,7 +51,7 @@
     <li class="nav-item {{ Request::is('jadwal*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('jadwal.index') }}">
             <i class="fas fa-fw fa-calendar-alt"></i>
-            <span>Jadwal Praktik</span></a>
+            <span>Jadwal Lab</span></a>
     </li>
     @role('admin')
     <!-- Divider -->

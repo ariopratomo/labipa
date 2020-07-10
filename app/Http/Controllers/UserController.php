@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use PhpParser\Node\Expr\Empty_;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -28,8 +29,11 @@ class UserController extends Controller
      */
     public function create()
     {
+        $role = Role::orderBy('name', 'ASC')->get();
+
         return view('user.create', [
             'title' => 'Tambah User',
+            'role' => $role
         ]);
     }
 
@@ -53,7 +57,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        $userCreate->assignRole('user');
+        $userCreate->assignRole($request->role);
         return redirect()->route('users.index')->withInfo('Berhasil menambah user.');
     }
 
@@ -76,9 +80,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $role = Role::orderBy('name', 'ASC')->get();
         return view('user.edit', [
             'title' => 'Ubah data User',
             'user' => $user,
+            'role' => $role
         ]);
     }
 
@@ -89,38 +95,33 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
+        $user = User::find($id);
+
         $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'nip' => ['required', 'numeric',],
+            'name' => 'required|string|max:255',
+            'nip' => 'required|numeric',
+            'password' => 'nullable|string|min:8|confirmed'
 
         ]);
         if ($request->email === $user->email) {
             $this->validate($request, [
-                'email' => ['required', 'string', 'email', 'max:255'],
+                'email' => 'required|string|email|max:255'
             ]);
         } else {
             $this->validate($request, [
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'email' => 'required|string|email|max:255|unique:users'
             ]);
         }
-        if ($request->password != '') {
-            $this->validate($request, ['password' => ['required', 'string', 'min:8', 'confirmed'],]);
-            $user->update([
-                'name' => $request->name,
-                'nip' => $request->nip,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ]);
-        } else {
-            $user->update([
-                'name' => $request->name,
-                'nip' => $request->nip,
-                'email' => $request->email,
-            ]);
-        }
-
+        $password = !empty($request->password) ? bcrypt($request->password) : $user->password;
+        $user->update([
+            'name' => $request->name,
+            'nip' => $request->nip,
+            'email' => $request->email,
+            'password' => $password
+        ]);
+        $user->roles()->sync([$request->role]);
 
         return redirect()->route('users.index')->withInfo('Berhasil mengubah user.');
     }

@@ -22,6 +22,7 @@
                             <th>NIP</th>
                             <th>Nama</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -60,6 +61,7 @@ $(document).ready(function() {
             {data: 'nip',},
             {data: 'name'},
             {data: 'email'},
+            {data: 'role'},
             {data: 'action'}
         ]
     });
@@ -86,6 +88,22 @@ $(document).ready(function() {
             error: function (data) {
                 console.log('Error:', data);
             }
+        });
+    });
+//#endregion
+//#region change role
+
+    $('body').on('change','select',function(){
+        let userid = $(this).data("id");
+        let role = $(this).children("option:selected").val()
+        $.ajax({
+            url: "{{ route('users.store') }}"+'/'+userid,
+            type:'POST',
+            data:  $('#roleForm').serialize(),
+            success: function(data) {
+                console.log(data.success)
+                showTable.draw();
+                }
         });
     });
 //#endregion
