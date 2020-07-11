@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "312e2f352248ff0578fc2cf38aa0ed56",
+    "content-hash": "b454fd225672239302027c1a98020db9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -159,6 +159,48 @@
                 "math"
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "caouecs/laravel-lang",
+            "version": "6.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "reference": "f986cdd027df5eada7bb8ecfd85a8a3a45602e64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/f986cdd027df5eada7bb8ecfd85a8a3a45602e64",
+                "reference": "f986cdd027df5eada7bb8ecfd85a8a3a45602e64",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "suggest": {
+                "andrey-helldar/laravel-lang-publisher": "Easy installation and update of translation files for your project",
+                "arcanedev/laravel-lang": "Translations manager and checker for Laravel 5",
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "time": "2020-07-11T10:56:34+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

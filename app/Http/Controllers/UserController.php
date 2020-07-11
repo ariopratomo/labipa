@@ -101,17 +101,17 @@ class UserController extends Controller
 
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'nip' => 'required|numeric',
             'password' => 'nullable|string|min:8|confirmed'
-
         ]);
-        if ($request->email === $user->email) {
+        if ($request->email === $user->email || $request->nip == $user->nip) {
             $this->validate($request, [
-                'email' => 'required|string|email|max:255'
+                'email' => 'required|string|email|max:255',
+                'nip' => 'required|numeric',
             ]);
         } else {
             $this->validate($request, [
-                'email' => 'required|string|email|max:255|unique:users'
+                'email' => 'required|string|email|max:255|unique:users',
+                'nip' => 'required|numeric|unique:users',
             ]);
         }
         $password = !empty($request->password) ? bcrypt($request->password) : $user->password;

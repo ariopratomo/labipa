@@ -6,15 +6,12 @@
 
 @else
 
-<a href="javascript:void(0)" class="btn btn-info" data-id="{{ $model->id }}" data-target="#modelId"
-    data-toggle="modal"><i class="fas fa-info-circle"></i></a>
+<button type="button" class="btn btn-info" disabled><i class="fas fa-check"></i></button>
 
 @endif
 
 
-{{-- <a href="javascript:void(0)" class="btn btn-danger delete" data-token="{{ csrf_token() }}"
-data-id="{{ $model->id }}">Hapus</a> --}}
-{{-- onclick="return confirm('Apakah anda yakin ?')" --}}
+
 
 <!-- Modal -->
 @include('barang.pakai.modal.modal-kembali')

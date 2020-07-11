@@ -13,7 +13,6 @@
                 @method('PUT')
                 <div class="modal-body">
                     <input type="hidden" name="id_pakai" value="{{ $model->id}}">
-
                     <div class="form-group">
                         <label>Tanggal Kembali</label>
                         <div class="input-group date" id="tgl_kembali{{ $model->id }}" data-target-input="nearest">
