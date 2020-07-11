@@ -98,11 +98,9 @@ class PemakaianBarangController extends Controller
     public function update(Request $request, PemakaianBarang $pemakaianBarang)
     {
         $pemakaianBarang->update([
-            'jml_kembali' => $request->jml_kembali,
             'tgl_kembali' => $request->tgl_kembali,
             'status' => 'dikembalikan',
         ]);
-        $pemakaianBarang->barang()->increment('jml_brg', $request->jml_kembali);
         return redirect()->route('pemakaian-barang.index')->with('info', 'Berhasil dikembalikan');
     }
 

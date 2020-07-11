@@ -13,14 +13,7 @@
                 @method('PUT')
                 <div class="modal-body">
                     <input type="hidden" name="id_pakai" value="{{ $model->id}}">
-                    <div class="form-group">
-                        <label>Jumlah Kembali <sup class="text-danger qty"></sup></label>
-                        <input type="number" class="form-control jml_kembali" name="jml_kembali"
-                            value="{{ old('jml_kembali') }}" required="" max="{{  $model->jml_pakai }}" min="1">
-                        @error('jml_kembali')
-                        <small class="form-text text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
+
                     <div class="form-group">
                         <label>Tanggal Kembali</label>
                         <div class="input-group date" id="tgl_kembali{{ $model->id }}" data-target-input="nearest">

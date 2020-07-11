@@ -70,7 +70,6 @@ $(document).ready(function() {
             {data: 'DT_RowIndex', orderable:false, searchable:false},
             {data: 'barang.nm_brg'},
             {data: 'jml_pakai'},
-            {data: 'jml_kembali'},
             {data: 'user.name'},
             {data: 'status'},
             {data: 'tgl_pakai'},
