@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "barryvdh/laravel-dompdf": "^0.8.6",
+        "beyondcode/laravel-favicon": "^1.2",
         "caouecs/laravel-lang": "^6.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",

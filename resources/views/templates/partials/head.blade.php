@@ -1,4 +1,6 @@
 <head>
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    @include('templates.partials.favicon')
     @stack('style')
 
 </head>
