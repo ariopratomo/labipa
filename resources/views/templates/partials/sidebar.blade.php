@@ -13,8 +13,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ Request::is('home')? 'active':'' }}">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item {{ Request::is('home','/')? 'active':'' }}">
+        <a class="nav-link" href="{}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
