@@ -22,7 +22,6 @@
                             <th>No</th>
                             <th>Nama Barang</th>
                             <th>Jumlah Pakai</th>
-                            <th>Jumlah Kembali</th>
                             <th>Peminjam</th>
                             <th>Status</th>
                             <th>Tgl Pakai</th>
