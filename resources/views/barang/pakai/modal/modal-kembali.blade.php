@@ -30,7 +30,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary return">Kembalikan</button>
+                    <button type="submit" class="btn btn-hijau return">Kembalikan</button>
                 </div>
             </form>
         </div>

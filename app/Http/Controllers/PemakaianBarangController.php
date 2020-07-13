@@ -62,7 +62,7 @@ class PemakaianBarangController extends Controller
             'user_id' => Auth::user()->id,
         ]);
         Barang::decrement('jml_brg', $request->jml_pakai);
-        return redirect()->route('pemakaian-barang.index')->withInfo('Data barang berhasil ditambah.');
+        return redirect()->route('pemakaian-barang.index')->withInfo('Berhasil menambah data pemakaian barang.');
     }
 
     /**

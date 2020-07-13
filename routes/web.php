@@ -24,10 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->resource('/barang', 'BarangController');
 Route::middleware('auth')->resource('/pemakaian-barang', 'PemakaianBarangController');
 Route::middleware('auth', 'role:admin')->resource('/pemusnahan-barang', 'PemusnahanBarangController');
-Route::middleware('auth')->resource('/jadwal', 'JadwalLabController');
+Route::middleware('auth', 'role:admin')->resource('/jadwal', 'JadwalLabController');
 Route::middleware('auth', 'role:admin')->resource('/kelas', 'KelasController');
 Route::middleware('auth', 'role:admin')->resource('/users', 'UserController');
-Route::middleware('auth')->get('/report/cetak_barang', 'ReportController@cetak_barang')->name('report.cetak_barang');
 Route::middleware('auth')->get('/profile', 'ProfileController@index')->name('profile');
 Route::middleware('auth')->put('/profile/update/{id}', 'ProfileController@update')->name('profile.update');
 
@@ -39,9 +38,8 @@ Route::get('/data/jadwal', 'DataController@jadwal')->name('data.jadwal');
 Route::get('/data/user', 'DataController@user')->name('data.user');
 Route::get('/data/musnah', 'DataController@musnah')->name('data.musnah');
 
-Route::middleware('auth', 'role:admin')->post('/updaterole/{id}', function (Request $request, $id) {
-    $user = User::findOrFail($id);
-    $update = $user->assignRole($request->role);
-    $return = ($update) ? "Berhasil" : "Gagal";
-    return $request->role;
-})->name('updaterole');
+
+
+Route::middleware('auth')->get('/report/cetak_barang', 'ReportController@cetekBarang')->name('report.cetak_barang');
+Route::middleware('auth')->get('/report/cetak_pakaibarang', 'ReportController@cetakPemakaianBarang')->name('report.cetak_pakaibarang');
+Route::middleware('auth')->get('/report/cetak_musnahbarang', 'ReportController@cetakPemusnahanBarang')->name('report.cetak_musnahbarang');

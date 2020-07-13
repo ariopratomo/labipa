@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Laporan Barang</title>
+    <title>Laporan Pemusnahan Barang</title>
     <link href="{{ public_path('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 
@@ -17,9 +17,9 @@
             content: counter(page);
         }
 
-        /* .page-break {
-            page-break-after: always;
-        } */
+        .ttd {
+            bottom: 0
+        }
     </style>
     <div class="card">
         <div class="row  ">
@@ -39,7 +39,6 @@
             </div>
         </div>
     </div>
-
     <br>
     <hr style="border:2px solid">
     <table class='table table-bordered'>
@@ -47,26 +46,33 @@
             <tr>
                 <th>No</th>
                 <th>Nama Barang</th>
-                <th>Jumlah Barang</th>
+                <th>Jumlah Musnah</th>
+                <th>Keterangan</th>
+                <th>Tanggal Musnah</th>
             </tr>
         </thead>
         <tbody>
+
         <tbody>
             @php $i=1 @endphp
             @foreach($barang as $item)
             <tr>
                 <td>{{ $i++ }}</td>
-                <td>{{$item->nm_brg}}</td>
-                <td>{{$item->jml_brg}}</td>
+                <td>{{$item->barang->nm_brg}}</td>
+                <td>{{$item->jml_musnah}}</td>
+                <td>{{$item->keterangan}}</td>
+                <td>{{$item->tgl_musnah}}</td>
             </tr>
             @endforeach
         </tbody>
         </tbody>
     </table>
+    <div class="ttd">
 
-    <div class="float-right">Tangerang, {{$tgl}}</div> <br><br>
-    <div class="float-right">Petugas Laboratorium,</div> <br><br><br>
-    <div class="float-right">{{ Auth::user()->name }}</div> <br><br>
+        <div class="float-right">Tangerang, {{$tgl}}</div> <br><br>
+        <div class="float-right">Petugas Laboratorium,</div> <br><br><br>
+        <div class="float-right">{{ Auth::user()->name }}</div>
+    </div>
 
 </body>
 

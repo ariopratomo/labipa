@@ -4,15 +4,16 @@
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Barang</h1>
-        {{-- <a href="{{ route('report.cetak_barang') }}" class="btn btn-primary" target="_blank">CETAK PDF</a> --}}
-
-        <a href="{{ route('barang.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        {{-- <a href="{{ route('report.cetak_barang') }}" class="btn btn-hijau" target="_blank">CETAK PDF</a> --}}
+        @role('admin')
+        <a href="{{ route('barang.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-hijau shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Barang</a>
+        @endrole
     </div>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Barang</h6>
+            <h6 class="m-0 font-weight-bold text-success">Data Barang</h6>
         </div>
         <div class="card-body">
             <div class="">
@@ -56,7 +57,6 @@ $(document).ready(function() {
     let showTable = $('#dataTable').DataTable({
             processing: true,
                 serverSide: true,
-                fixedHeader: true,
                 ajax:'{{ route('data.barang') }}',
                 columns:[
                     {data: 'DT_RowIndex', orderable:false, searchable:false},

@@ -17,6 +17,8 @@ class CreatePemakaianBarangsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('brg_id');
+            $table->index('user_id');
+            $table->index('brg_id');
             $table->integer('jml_pakai');
             $table->string('ket_pakai');
             $table->enum('status', ['dipakai', 'dikembalikan']);

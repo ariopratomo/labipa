@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Laporan Barang</title>
+    <title>Laporan Pemakaian Barang</title>
     <link href="{{ public_path('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 
@@ -16,10 +16,6 @@
         footer .pagenum:before {
             content: counter(page);
         }
-
-        /* .page-break {
-            page-break-after: always;
-        } */
     </style>
     <div class="card">
         <div class="row  ">
@@ -39,7 +35,6 @@
             </div>
         </div>
     </div>
-
     <br>
     <hr style="border:2px solid">
     <table class='table table-bordered'>
@@ -47,17 +42,31 @@
             <tr>
                 <th>No</th>
                 <th>Nama Barang</th>
-                <th>Jumlah Barang</th>
+                <th>Jumlah Pakai</th>
+                <th>Pemakai</th>
+                <th>Status</th>
+                <th>Tanggal Pakai</th>
+                <th>Tanggal Kembali</th>
             </tr>
         </thead>
         <tbody>
+
         <tbody>
             @php $i=1 @endphp
             @foreach($barang as $item)
             <tr>
                 <td>{{ $i++ }}</td>
-                <td>{{$item->nm_brg}}</td>
-                <td>{{$item->jml_brg}}</td>
+                <td>{{$item->barang->nm_brg}}</td>
+                <td>{{$item->jml_pakai}}</td>
+                <td>{{$item->user->name}}</td>
+                <td>{{$item->status}}</td>
+                <td>{{$item->tgl_pakai}}</td>
+                <td>@if (!empty($item->tgl_kembali))
+                    {{ $item->tgl_kembali}}
+                    @else
+                    -
+                    @endif
+                </td>
             </tr>
             @endforeach
         </tbody>

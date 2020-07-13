@@ -5,13 +5,13 @@
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Jadwal</h1>
-        <a href="{{ route('jadwal.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="{{ route('jadwal.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-hijau shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Jadwal</a>
     </div>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Jadwal</h6>
+            <h6 class="m-0 font-weight-bold text-success">Data Jadwal</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

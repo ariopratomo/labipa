@@ -55,7 +55,7 @@ class PemusnahanBarangController extends Controller
             'tgl_musnah' => $request->tgl_musnah,
         ]);
         Barang::decrement('jml_brg', $request->jml_musnah);
-        return redirect()->route('pemusnahan-barang.index')->withInfo('Data berhasil ditambah.');
+        return redirect()->route('pemusnahan-barang.index')->withInfo('Berhasil menambah data pemusanahan barang');
     }
 
     /**

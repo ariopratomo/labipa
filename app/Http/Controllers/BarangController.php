@@ -54,7 +54,7 @@ class BarangController extends Controller
             'jml_brg' => $request->jml_brg,
         ]);
 
-        return redirect()->route('barang.index')->withInfo('Data barang berhasil ditambah.');
+        return redirect()->route('barang.index')->withInfo('Berhasil menambah data barang.');
     }
 
     /**
@@ -102,7 +102,7 @@ class BarangController extends Controller
             'jml_brg' => $request->jml_brg,
         ]);
 
-        return redirect()->route('barang.index')->withInfo('Data barang berhasil diubah.');
+        return redirect()->route('barang.index')->withInfo('Berhasil mengubah data barang.');
     }
 
     /**

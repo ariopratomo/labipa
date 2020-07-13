@@ -24,19 +24,11 @@ class ProfileController extends Controller
 
         $this->validate($request, [
             'name' => 'required|string|max:255',
-
+            'nip' => "required|numeric|unique:users,nip,$id",
             'password' => 'nullable|string|min:8|confirmed'
 
         ]);
-        if ($request->nip == $user->nip) {
-            $this->validate($request, [
-                'nip' => 'required|numeric',
-            ]);
-        } else {
-            $this->validate($request, [
-                'nip' => 'required|numeric|unique:users',
-            ]);
-        }
+
         $password = !empty($request->password) ? bcrypt($request->password) : $user->password;
         $user->update([
             'name' => $request->name,

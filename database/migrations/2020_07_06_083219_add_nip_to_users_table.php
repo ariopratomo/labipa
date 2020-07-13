@@ -14,7 +14,7 @@ class AddNipToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('nip')->after('id');
+            $table->string('nip')->unique()->after('id');
         });
     }
 

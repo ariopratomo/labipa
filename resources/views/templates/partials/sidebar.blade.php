@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-hijau sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -32,12 +32,13 @@
             <i class="fas fa-flask "></i>
             <span>Pemakaian barang</span></a>
     </li>
+    @role('admin')
     <li class="nav-item {{ Request::is('pemusnahan-barang*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('pemusnahan-barang.index') }}">
             <i class="fas fa-trash "></i>
             <span>Pemusnahan barang</span></a>
     </li>
-
+    @endrole
 
     <!-- Divider -->
     <hr class="sidebar-divider">

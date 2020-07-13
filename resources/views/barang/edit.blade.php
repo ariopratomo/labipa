@@ -6,7 +6,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Barang</h6>
+            <h6 class="m-0 font-weight-bold text-success">Edit Barang</h6>
         </div>
         <div class="card-body">
             <form action="{{ route('barang.update',$barang) }}" method="post">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="col-8">
-                        <button class="btn btn-primary float-right" type="submit">Ubah</button>
+                        <button class="btn btn-hijau float-right" type="submit">Ubah</button>
                         <a class="btn btn-secondary float-right mr-2" href="{{ route('barang.index') }}"
                             type="submit">Batal</a>
                     </div>
