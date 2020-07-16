@@ -48,13 +48,11 @@
             <i class="fas fa-university "></i>
             <span>Kelas</span></a>
     </li>
-    @endrole
     <li class="nav-item {{ Request::is('jadwal*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('jadwal.index') }}">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Jadwal Lab</span></a>
     </li>
-    @role('admin')
     <!-- Divider -->
     <hr class="sidebar-divider">
     <li class="nav-item {{ Request::is('user*')? 'active':'' }}">
