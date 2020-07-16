@@ -40,6 +40,6 @@ Route::get('/data/musnah', 'DataController@musnah')->name('data.musnah');
 
 
 
-Route::middleware('auth')->get('/report/cetak_barang', 'ReportController@cetekBarang')->name('report.cetak_barang');
-Route::middleware('auth')->get('/report/cetak_pakaibarang', 'ReportController@cetakPemakaianBarang')->name('report.cetak_pakaibarang');
-Route::middleware('auth')->get('/report/cetak_musnahbarang', 'ReportController@cetakPemusnahanBarang')->name('report.cetak_musnahbarang');
+Route::middleware('auth', 'role:admin')->get('/report/cetak_barang', 'ReportController@cetakBarang')->name('report.cetak_barang');
+Route::middleware('auth', 'role:admin')->get('/report/cetak_pakaibarang', 'ReportController@cetakPemakaianBarang')->name('report.cetak_pakaibarang');
+Route::middleware('auth', 'role:admin')->get('/report/cetak_musnahbarang', 'ReportController@cetakPemusnahanBarang')->name('report.cetak_musnahbarang');

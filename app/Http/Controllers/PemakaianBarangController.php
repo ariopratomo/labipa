@@ -61,7 +61,7 @@ class PemakaianBarangController extends Controller
             'status' => 'dipakai',
             'user_id' => Auth::user()->id,
         ]);
-        Barang::decrement('jml_brg', $request->jml_pakai);
+        // Barang::decrement('jml_brg', $request->jml_pakai);
         return redirect()->route('pemakaian-barang.index')->withInfo('Berhasil menambah data pemakaian barang.');
     }
 
@@ -85,7 +85,12 @@ class PemakaianBarangController extends Controller
     public function edit(PemakaianBarang $pemakaianBarang)
     {
 
-        //
+
+        return view('barang.pakai.edit', [
+            'barang' => Barang::orderBy('nm_brg', 'ASC')->get(),
+            'pemakaian' => $pemakaianBarang,
+            'title' => 'Tambah data'
+        ]);
     }
 
     /**
@@ -97,11 +102,30 @@ class PemakaianBarangController extends Controller
      */
     public function update(Request $request, PemakaianBarang $pemakaianBarang)
     {
-        $pemakaianBarang->update([
-            'tgl_kembali' => $request->tgl_kembali,
-            'status' => 'dikembalikan',
-        ]);
-        return redirect()->route('pemakaian-barang.index')->with('info', 'Berhasil dikembalikan');
+        if ($request->kembali) {
+            # code...
+            $pemakaianBarang->update([
+                'tgl_kembali' => $request->tgl_kembali,
+                'status' => 'dikembalikan',
+            ]);
+            return redirect()->route('pemakaian-barang.index')->with('info', 'Berhasil dikembalikan');
+        } else {
+            $this->validate($request, [
+                'nm_brg' => 'required',
+                'jml_pakai' => 'required|numeric',
+                'ket_pakai' => 'required',
+                'tgl_pakai' => 'required',
+            ]);
+
+            $pemakaianBarang->update([
+                'brg_id' => $request->nm_brg,
+                'jml_pakai' => $request->jml_pakai,
+                'ket_pakai' => $request->ket_pakai,
+                'tgl_pakai' => $request->tgl_pakai,
+            ]);
+            // Barang::decrement('jml_brg', $request->jml_pakai);
+            return redirect()->route('pemakaian-barang.index')->withInfo('Berhasil mengubah data pemakaian barang.');
+        }
     }
 
     /**
