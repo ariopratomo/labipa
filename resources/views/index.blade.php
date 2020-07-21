@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <a class="btn btn-primary" href="{{ route('report.cetak_barang') }}" target="_blank"><i
+                            <a class="btn btn-primary" href="{{ route('laporan') }}"><i
                                     class="fas fa-print text-gray-300"></i>
                                 Cetak</a>
                         </div>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <a class="btn btn-success" href="{{ route('report.cetak_pakaibarang') }}" target="_blank"><i
+                            <a class="btn btn-success" href="{{ route('laporan') }}"><i
                                     class="fas fa-print text-gray-300"></i>
                                 Cetak</a>
                         </div>
@@ -56,7 +56,7 @@
                                 Barang</div>
                         </div>
                         <div class="col-auto">
-                            <a class="btn btn-info" href="{{ route('report.cetak_musnahbarang') }}" target="_blank"><i
+                            <a class="btn btn-info" href="{{ route('laporan') }}"><i
                                     class="fas fa-print text-gray-300"></i>
                                 Cetak</a>
                         </div>

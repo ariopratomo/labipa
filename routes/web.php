@@ -46,6 +46,13 @@ Route::middleware('auth', 'role:admin')->get('/report/cetak_musnahbarang', 'Repo
 
 
 Route::middleware('auth', 'role:admin')->get('/laporan', 'LaporanController@index')->name('laporan');
-Route::middleware('auth', 'role:admin')->get('/laporan/date', 'LaporanController@date')->name('laporan.date');
+Route::middleware('auth', 'role:admin')->get('/laporan/datepakai', 'LaporanController@datepakai')->name('laporan.datepakai');
+Route::middleware('auth', 'role:admin')->get('/laporan/datemusnah', 'LaporanController@datemusnah')->name('laporan.datemusnah');
+
+Route::middleware('auth', 'role:admin')->get('/laporan/cetak_barang', 'LaporanController@cetakBarang')->name('laporan.cetak_barang');
+
 Route::middleware('auth', 'role:admin')->post('/laporan/cetak_laporanpakai', 'LaporanController@cetakPakai')->name('laporan.cetak_laporanpakai');
 Route::middleware('auth', 'role:admin')->get('/laporan/cetak_laporanpakai', 'LaporanController@cetakPakai')->name('laporan.cetak_laporanpakai');
+
+Route::middleware('auth', 'role:admin')->post('/laporan/cetak_laporanmusnah', 'LaporanController@cetakMusnah')->name('laporan.cetak_laporanmusnah');
+Route::middleware('auth', 'role:admin')->get('/laporan/cetak_laporanmusnah', 'LaporanController@cetakMusnah')->name('laporan.cetak_laporanmusnah');
