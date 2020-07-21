@@ -46,11 +46,13 @@ class BarangController extends Controller
     {
         $this->validate($request, [
             'nm_brg' => 'required',
+            'fungsi_brg' => 'required',
             'jml_brg' => 'required|numeric',
         ]);
 
         Barang::create([
             'nm_brg' => $request->nm_brg,
+            'fungsi_brg' => $request->fungsi_brg,
             'jml_brg' => $request->jml_brg,
         ]);
 
@@ -94,10 +96,12 @@ class BarangController extends Controller
 
         $this->validate($request, [
             'nm_brg' => 'required',
+            'fungsi_brg' => 'required',
             'jml_brg' => 'required|numeric',
         ]);
 
         $barang->update([
+            'fungsi_brg' => $request->fungsi_brg,
             'nm_brg' => $request->nm_brg,
             'jml_brg' => $request->jml_brg,
         ]);

@@ -38,11 +38,9 @@
             <i class="fas fa-trash "></i>
             <span>Pemusnahan barang</span></a>
     </li>
-    @endrole
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-    @role('admin')
     <li class="nav-item {{ Request::is('kelas*')? 'active':'' }}">
         <a class="nav-link" href="{{ route('kelas.index') }}">
             <i class="fas fa-university "></i>
@@ -59,6 +57,12 @@
         <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-user-alt "></i>
             <span>User</span></a>
+    </li>
+    <hr class="sidebar-divider">
+    <li class="nav-item {{ Request::is('laporan*')? 'active':'' }}">
+        <a class="nav-link" href="{{ route('laporan') }}">
+            <i class="fas fa-file-alt    "></i>
+            <span>Laporan</span></a>
     </li>
     @endrole
 

@@ -4,6 +4,7 @@
 <head>
     <title>Laporan Pemakaian Barang</title>
     <link href="{{ public_path('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ public_path('assets/img/icon/favicon.ico') }}" />
 </head>
 
 <body>
@@ -24,7 +25,7 @@
             </div>
             <div class="col-11 ">
                 <div class="text-center mx-auto">
-                    <h4>Laporan Barang</h4>
+                    <h4>Laporan Pemakaian Barang</h4>
                     <div>
                         <h5>LABORATORIUM IPA SMP ASYSYAKIRIN</h5>
                     </div>

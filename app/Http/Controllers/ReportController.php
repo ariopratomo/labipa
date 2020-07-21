@@ -11,6 +11,7 @@ use Jenssegers\Date\Date;
 
 class ReportController extends Controller
 {
+
     // Cetak laporan barang
     public function cetakBarang()
     {
@@ -18,8 +19,9 @@ class ReportController extends Controller
         $tahun = date("Y");
         Date::setLocale('id'); //id kode untuk indonesia
         $tgl = Date::now()->format('j F Y');
-        $pdf = PDF::loadview('report.report-barang', ['barang' => $barang, 'tahun' => $tahun, 'tgl' => $tgl])->setPaper('a4', 'potrait');
-        return $pdf->stream();
+        $tglCetak = Date::now()->format('j-m-Y_H:i:s');
+        $pdf = PDF::loadview('report.report-barang', ['barang' => $barang, 'tahun' => $tahun, 'tgl' => $tgl, 'tglCetak' => $tglCetak])->setPaper('a4', 'potrait');
+        return $pdf->stream('laporan_barang_' . date('d_m_Y') . '.pdf');
     }
     public function cetakPemakaianBarang()
     {

@@ -16,6 +16,7 @@ class CreateBarangsTable extends Migration
         Schema::create('barang', function (Blueprint $table) {
             $table->id();
             $table->string('nm_brg');
+            $table->string('fungsi_brg');
             $table->integer('jml_brg');
             $table->timestamps();
         });

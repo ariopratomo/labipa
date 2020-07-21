@@ -29,6 +29,7 @@
             <div class="col-11 ">
                 <div class="text-center mx-auto">
                     <h4>Laporan Barang</h4>
+
                     <div>
                         <h5>LABORATORIUM IPA SMP ASYSYAKIRIN</h5>
                     </div>
@@ -67,7 +68,7 @@
     <div class="float-right">Tangerang, {{$tgl}}</div> <br><br>
     <div class="float-right">Petugas Laboratorium,</div> <br><br><br>
     <div class="float-right">{{ Auth::user()->name }}</div> <br><br>
-
+    <small class="fixed-bottom">dicetak_{{ $tglCetak }}</span>
 </body>
 
 

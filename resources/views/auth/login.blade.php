@@ -6,7 +6,10 @@
     <div class="row justify-content-center my-5">
         <div class="col-md-8">
             <div class="card shadow-lg my-5 border-0">
-                <div class="card-header text-center">{{ __('Login') }}</div>
+                <div class="card-header"><img src="{{ asset('assets/img/logo.png') }}" class="img-fluid float-left"
+                        alt="logo" width="50">
+                    <h4 class="text-center mt-3">LOGIN</h4>
+                </div>
 
                 <div class="card-body ">
                     <div class="my-5">

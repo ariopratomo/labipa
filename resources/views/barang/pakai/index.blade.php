@@ -22,7 +22,7 @@
                             <th>No</th>
                             <th>Nama Barang</th>
                             <th>Jumlah Pakai</th>
-                            <th>Pemakai</th>
+                            <th>Nama</th>
                             <th>Status</th>
                             <th>Tgl Pakai</th>
                             <th>Tgl Kembali</th>

@@ -22,6 +22,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
+                            <th>Fungsi Barang</th>
                             <th>Jumlah Barang</th>
                             @role('admin')
                             <th>Aksi</th>
@@ -61,6 +62,7 @@ $(document).ready(function() {
                 columns:[
                     {data: 'DT_RowIndex', orderable:false, searchable:false},
                     {data: 'nm_brg'},
+                    {data: 'fungsi_brg'},
                     {data: 'jml_brg'},
                     {data: 'action'},
                 ]
@@ -108,6 +110,7 @@ $(document).ready(function() {
                 columns:[
                     {data: 'DT_RowIndex', orderable:false, searchable:false},
                     {data: 'nm_brg'},
+                    {data: 'fungsi_brg'},
                     {data: 'jml_brg'},
                 ]
         });

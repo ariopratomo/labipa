@@ -43,3 +43,9 @@ Route::get('/data/musnah', 'DataController@musnah')->name('data.musnah');
 Route::middleware('auth', 'role:admin')->get('/report/cetak_barang', 'ReportController@cetakBarang')->name('report.cetak_barang');
 Route::middleware('auth', 'role:admin')->get('/report/cetak_pakaibarang', 'ReportController@cetakPemakaianBarang')->name('report.cetak_pakaibarang');
 Route::middleware('auth', 'role:admin')->get('/report/cetak_musnahbarang', 'ReportController@cetakPemusnahanBarang')->name('report.cetak_musnahbarang');
+
+
+Route::middleware('auth', 'role:admin')->get('/laporan', 'LaporanController@index')->name('laporan');
+Route::middleware('auth', 'role:admin')->get('/laporan/date', 'LaporanController@date')->name('laporan.date');
+Route::middleware('auth', 'role:admin')->post('/laporan/cetak_laporanpakai', 'LaporanController@cetakPakai')->name('laporan.cetak_laporanpakai');
+Route::middleware('auth', 'role:admin')->get('/laporan/cetak_laporanpakai', 'LaporanController@cetakPakai')->name('laporan.cetak_laporanpakai');

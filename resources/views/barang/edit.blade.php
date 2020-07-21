@@ -23,6 +23,14 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="">Fungsi Barang</label>
+                            <input type="text" class="form-control" name="fungsi_brg"
+                                value="{{ $barang->fungsi_brg ?? old('fungsi_brg') }}" aria-describedby="helpId">
+                            @error('fungsi_brg')
+                            <small id="helpId" class="form-text text-danger ">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="">Jumlah Barang</label>
                             <input type="number" class="form-control" name="jml_brg"
                                 value="{{ $barang->jml_brg ?? old('jml_brg') }}" aria-describedby="helpId">
